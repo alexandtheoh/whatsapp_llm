@@ -1,16 +1,22 @@
-WhatsApp LLM Fine-Tuning Project
-This project fine-tunes a large language model (LLM) for WhatsApp-style conversational tasks using the Unsloth library and LoRA (Low-Rank Adaptation) techniques. It leverages efficient 4-bit quantized models to optimize memory usage and performance.
+# WhatsApp LLM Fine-Tuning Project
 
-🚀 Features
-Fine-tunes a quantized transformer model using Unsloth and LoRA.
+This project fine-tunes a large language model (LLM) to emulate a person using their whatsapp chat logs using the [Unsloth](https://github.com/unslothai/unsloth) library and LoRA (Low-Rank Adaptation). It leverages efficient 4-bit quantized models for better performance on limited hardware.
 
-Supports efficient 4-bit model loading to reduce memory usage.
+---
 
-Flexible configuration for different hardware (e.g., Float16, Bfloat16).
+## 🚀 Features
 
-Ready for conversational AI or chat assistant tasks like WhatsApp replies.
+- ✅ Fine-tunes 4-bit quantized transformer models  
+- ✅ Uses Unsloth for fast, memory-efficient loading  
+- ✅ Incorporates LoRA adapters for parameter-efficient training  
+- ✅ Configurable for different sequence lengths and data types  
 
-📦 Dependencies
+---
+
+## 📦 Requirements
+
+Install the following dependencies:
+
 The notebook installs the following Python packages:
 
 unsloth (via GitHub)
@@ -19,21 +25,20 @@ xformers
 
 trl, peft, accelerate, bitsandbytes
 
-You can install them manually with:
+Simply run the %%capture portion of the notebook
 
-bash
-Copy
-Edit
-pip install --upgrade --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth.git
-pip install xformers trl peft accelerate bitsandbytes
-🧠 Model Setup
+---
+
+## 🧠 Model Setup
 The project uses:
 
 Base model: unsloth/mistral-7b-bnb-4bit
 
 PEFT method: LoRA adapters for efficient fine-tuning
 
-🛠️ Configuration
+---
+
+## 🛠️ Configuration
 Key parameters include:
 
 max_seq_length = 1024
@@ -46,7 +51,10 @@ r = 16 (LoRA rank)
 
 These can be tuned based on the target application or hardware limitations.
 
-📝 Usage
+
+---
+
+## 📝 Usage
 Run the whatsapp_llm.ipynb notebook step by step to:
 
 Install necessary packages.
@@ -55,7 +63,13 @@ Load the base model.
 
 Apply LoRA adapters.
 
-(Optional) Further customize or train on your dataset.
+Export your whatsapp chats merge them into a singular txt file. Concatenating them together will do.
 
-📁 Files
+Change person_model to the name of the person you are trying to emulate. (This name must be an exact match to your whatsapp chat log)
+
+Run all in google colab (T4 GPU) or your IDE should you have the appropriate hardware
+
+---
+
+## 📁 Files
 whatsapp_llm.ipynb — The main notebook for setup and fine-tuning.
